@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>View Applications</title>
+        <p>You can view the applications here</p>
+    </head>
+    <body>
+        <table >
+            <style>table{
+                 border-collapse: collapse;
+                margin: 30px 30px;
+                font-size: 0.9em;
+                font-family:Arial, Helvetica, sans-serif;
+                min-width: 600px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            }</style>
+            <tr>                
+                <th>Application ID</th>
+                <th>Applicant Name</th>
+                <th>Submitted Date</th>
+                <th>Status</th>
+            </tr>
+            <tr *ngFor="let value of data">
+                <td><a (click)='onSelect(value.id)'>{{value.id}}</a></td>
+                <td>{{value.first_name}} {{value.middle_name}} {{value.last_name}} </td>
+                <td>{{value.submitted_date}}</td>
+                <td>{{value.app_status}}</td>
+            </tr>
+        </table>
+
+        <h1 align="jumbotron" align="center">
+            <a routerLink="/"><button class="btn btn-success pull-right" >Back</button></a>
+        </h1>
+    </body>
+</html>
+

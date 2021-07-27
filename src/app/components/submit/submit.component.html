@@ -1,0 +1,358 @@
+<div class="container">
+    <div class="card bg-dark text-white m-3 mt-5">
+      <h5 class="card-header text-center">
+        <img src="" alt="" width="30" height="30" class="mr-2" />
+        Loan Application Form
+      </h5>
+  
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+          <div class="form-row">
+            <div class="form-group col col-6">
+              <label>First Name <span class="asterick">*</span></label>
+              <input 
+               type="text" 
+               class="form-control" 
+               formControlName="firstName" 
+               />
+              <div *ngIf="(submitted || h.firstName.touched) && h.firstName.errors" class="text-warning">
+                <div *ngIf="h.firstName.errors.required">
+                  First Name is required
+                </div>
+                <div *ngIf="h.firstName.errors.maxlength">
+                  First Name less than 255 characters
+                </div>
+              </div>
+            </div>
+     
+            <div class="form-group  col col-6">
+              <label>Middle Name</label>
+              <input formControlName="middleName" type="text" class="form-control"
+               />
+              <div *ngIf="h.middleName.errors" class="text-warning">
+                <div *ngIf="h.middleName.errors.maxlength">
+                  Middle Name must be less than 255 characters
+                </div>
+              </div>
+            </div>
+        
+            <div class="form-group  col col-6">
+              <label>Last Name <span class="asterick">*</span></label>
+              <input formControlName="lastName" type="text" class="form-control"
+             />
+              <div *ngIf="(h.lastName.touched || submitted) && h.lastName.errors" class="text-warning">
+                <div *ngIf="h.lastName.errors.required">
+                  Last Name is required
+                </div>
+                <div *ngIf="h.lastName.errors.maxlength">
+                  Last Name less than 255 characters
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>DOB(MM/DD/YYYY) <span class="asterick">*</span></label>
+            <input  formControlName="dob" type="date" class="form-control"
+            />
+            
+            <div *ngIf="h.dob.touched && h.dob.errors" class="text-warning">
+              <div *ngIf="h.dob.errors.required">Dob is required</div>
+              <div *ngIf="h.dob.errors.pattern">
+                dob must be in spacified format
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="status">Marital Status <span class="asterick">*</span></label>
+             <select formControlName="maritalStatus" class="form-control">
+              <option value="Divorced">Divorced</option>
+              <option value="Married">Married</option> 
+              <option value="Seperated">Seperated</option>
+              <option value="Single">Single</option>
+              <option value="Widowed">Widow</option>
+            </select>
+            <div *ngIf="h.maritalStatus.touched && h.maritalStatus.errors" class="text-warning">
+              <div *ngIf="h.maritalStatus.errors.required">Marital Status is required</div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>SSN Number <span class="asterick">*</span></label>
+            <input  formControlName="ssnNumber" type="number" class="form-control"
+             />
+            <div *ngIf="h.ssnNumber.touched && h.ssnNumber.errors" class="text-warning">
+              <div *ngIf="h.ssnNumber.errors.required">SSN Number is required</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Loan Amount($123.00) <span class="asterick">*</span></label>
+            <input  formControlName="loanAmount" type="text" class="form-control"
+            />
+            <div *ngIf="(h.loanAmount.touched || submitted) && h.loanAmount.errors" class="text-warning">
+              <div *ngIf="h.loanAmount.errors.required">Loan Amount is required</div>
+              <div *ngIf ="h.loanAmount.errors.pattern">
+                It should match the pattern($123.00) 
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="loanPurpose">Loan Purpose <span class="asterick">*</span></label>
+            <select formControlName="loanPurpose" class="form-control">
+             <option value="Debt">Debt</option>
+             <option value="Educational Loan">Educational Loan</option> 
+             <option value="Home Loan">Home Loan</option>
+             <option value="Personal Loan">Personal Loan</option>
+           </select>
+            <div *ngIf="(h.loanPurpose.touched || submitted ) && h.loanPurpose.errors" class="text-warning">
+              <div *ngIf="h.loanPurpose.errors.required">Loan Purpose is required</div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Description</label>
+            <textarea formControlName="description" type="text" class="form-control"></textarea>
+          </div>
+  
+             
+          <div class="form-group">
+            <label>Address-1 <span class="asterick">*</span></label>
+            <input formControlName="address1" type="text" class="form-control"/>
+            <div *ngIf="(h.address1.touched || submitted) && h.address1.errors" class="text-warning">
+              <div *ngIf="h.address1.errors.required">
+                Address is required
+              </div>
+              <div *ngIf="h.address1.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Address-2</label>
+            <input formControlName="optAddress" type="text" class="form-control"/>
+            <div *ngIf="h.optAddress.errors" class="text-warning">
+              <div *ngIf="h.optAddress.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label>City <span class="asterick">*</span></label>
+            <input formControlName="city" type="text" class="form-control"/>
+            <div *ngIf="(h.city.touched || submitted) && h.city.errors" class="text-warning">
+              <div *ngIf="h.city.errors.required">
+                City is required
+              </div>
+              <div *ngIf="h.city.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>State <span class="asterick">*</span></label>
+            <input formControlName="state" type="text" class="form-control"/>
+            <div *ngIf="(h.state.touched || submitted) && h.state.errors" class="text-warning">
+              <div *ngIf="h.state.errors.required">
+                State is required
+              </div>
+              <div *ngIf="h.state.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Postal Code <span class="asterick">*</span></label>
+            <input formControlName="postalCode" type="text" class="form-control"/>
+            <div *ngIf="(h.postalCode.touched || submitted) && h.postalCode.errors" class="text-warning">
+              <div *ngIf="h.postalCode.errors.required">
+                Postal Code is required
+              </div>
+              <div *ngIf="h.postalCode.errors.pattern">
+                Must be of 6 digit
+              </div>
+            </div>
+          </div>
+ 
+          <div class="form-group">
+            <label>Home Phone Number <span class="asterick">*</span></label>
+            <input formControlName="homePhone" type="text" class="form-control"/>
+            <div *ngIf="(h.homePhone.touched || submitted) && h.homePhone.errors" class="text-warning">
+              <div *ngIf="h.homePhone.errors.required">
+               Home Phone Number is required
+              </div>
+              <div *ngIf="h.homePhone.errors.pattern">
+               Less than 11 digits
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Office Phone</label>
+            <input formControlName="officePhone" type="text" class="form-control"/>
+            <div *ngIf="(h.officePhone.touched || submitted) && h.officePhone.errors" class="text-warning">
+              <div *ngIf="h.officePhone.errors.pattern">
+                Must be of 10 digits
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Mobile Number <span class="asterick">*</span></label>
+            <input formControlName="mobileNumber" type="text" class="form-control"/>
+            <div *ngIf="(h.mobileNumber.touched || submitted) && h.mobileNumber.errors" class="text-warning">
+              <div *ngIf="h.mobileNumber.errors.required">
+               Mobile number is required
+              </div>
+              <div *ngIf="h.mobileNumber.errors.pattern">
+                Must be of 10 digits
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email <span class="asterick">*</span></label>
+            <input  formControlName="email" type="text" class="form-control"
+            [ngClass]="{'is-invalid' : submitted && h.email.errors} " />
+            
+            <div *ngIf="(h.email.touched || submitted) && h.email.errors" class="text-warning">
+              <div *ngIf="h.email.errors.required">Email is required</div>
+              <div *ngIf="h.email.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div> 
+   
+          <div class="form-group col col-6">
+            <label>Employer Name <span class="asterick">*</span></label>
+            <input 
+             type="text" 
+             class="form-control" 
+             formControlName="employerName" 
+             />
+            <div *ngIf="(submitted || h.employerName.touched) && h.employerName.errors" class="text-warning">
+              <div *ngIf="h.employerName.errors.required">
+                Employer Name is required
+              </div>
+              <div *ngIf="h.employerName.errors.maxlength">
+                Employer Name less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Annual Salary <span class="asterick">*</span></label>
+            <input  formControlName="annualSalary" type="text" class="form-control"
+            />
+            <div *ngIf="(h.annualSalary.touched || submitted) && h.annualSalary.errors" class="text-warning">
+              <div *ngIf="h.annualSalary.errors.required">Annual Salary is required</div>
+              <div *ngIf ="h.annualSalary.errors.pattern">
+                It should match the pattern($123.00) 
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Designation</label>
+            <input formControlName="designation" type="text" class="form-control"/>
+            <div *ngIf="h.designation.errors" class="text-warning">
+              <div *ngIf="h.designation.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Employer Address-1 <span class="asterick">*</span></label>
+            <input formControlName="address1" type="text" class="form-control"/>
+            <div *ngIf="(h.address1.touched || submitted) && h.address1.errors" class="text-warning">
+              <div *ngIf="h.address1.errors.required">
+                Address is required
+              </div>
+              <div *ngIf="h.address1.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label> Employer Address-2</label>
+            <input formControlName="optAddress" type="text" class="form-control"/>
+            <div *ngIf="h.optAddress.errors" class="text-warning">
+              <div *ngIf="h.optAddress.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Employer City <span class="asterick">*</span></label>
+            <input formControlName="city" type="text" class="form-control"/>
+            <div *ngIf="(h.city.touched || submitted) && h.city.errors" class="text-warning">
+              <div *ngIf="h.city.errors.required">
+                City is required
+              </div>
+              <div *ngIf="h.city.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Employer State <span class="asterick">*</span></label>
+            <input formControlName="state" type="text" class="form-control"/>
+            <div *ngIf="(h.state.touched || submitted) && h.state.errors" class="text-warning">
+              <div *ngIf="h.state.errors.required">
+                State is required
+              </div>
+              <div *ngIf="h.state.errors.maxlength">
+                Must be less than 255 characters
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Employer Postal Code <span class="asterick">*</span></label>
+            <input formControlName="postalCode" type="text" class="form-control"/>
+            <div *ngIf="(h.postalCode.touched || submitted) && h.postalCode.errors" class="text-warning">
+              <div *ngIf="h.postalCode.errors.required">
+                Postal Code is required
+              </div>
+              <div *ngIf="h.postalCode.errors.pattern">
+                Must be of 6 digit
+              </div>
+            </div>
+          </div>
+   
+  
+          <div class="form-group form-check">
+            <input type="checkbox" id="acceptTerms" class="form-check-input"
+            formControlName="acceptTandC" 
+               [ngClass]="{'is-invalid' : submitted && h.acceptTandC.errors} "/>
+            <label for="acceptTerms" class="form-check-label"
+              >Accept Terms & Conditions</label
+            >
+            <div  *ngIf="h.acceptTandC.touched && h.acceptTandC.errors" class="text-warning">
+             <div *ngIf="h.acceptTandC.errors.required" >
+                Accept Ts & Cs is required
+            </div>
+            </div>
+          </div>
+         
+          <div class="text-center">
+            <button class="btn btn-success btn-lg px-4 mr-3">Register</button>
+            <button (click)="onReset()" class="btn btn-warning" type="reset">
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+

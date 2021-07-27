@@ -1,0 +1,215 @@
+<head>
+    <title>View Application</title>
+    <style>
+        html, body {
+            width: fit-content;
+            height: fit-content;
+            margin: 20px;
+            align-content:space-between;
+        }
+        .one{
+               border: 0px solid white;
+               margin-left: 60px;
+              } 
+        .one p{
+             position:relative;
+            margin-left:40%;
+         }       
+        .two{
+           flex-direction: column;
+           margin-block: auto;
+           
+        } 
+        .two label {
+             margin: 20px 20px 20px 80px;
+       }
+       .boxt{
+        width:350px;
+         height:1px; 
+         border:0px solid white; 
+         float:right;
+         position:relative;
+        margin-left:40%;
+        margin-right: 13%;
+        margin-bottom: 2%;
+        margin-top: 0.5%;
+       }
+       .demo1{
+           width: 425px;
+             height: 165px;
+             border: 1px solid black;
+           float:right;
+           line-height: 2;
+           padding:3px;
+           margin-right:5%;
+       }
+       .demo1 label{
+           margin: 10px 40px 40px 10px;
+       }
+       .demo2{
+           width: 425px;
+             height: 160px;
+             border: 1px solid black;
+           float:right;
+           line-height: 2;
+           padding:3px;
+           margin-right:5%;
+           
+       }.demo2 label{
+           margin: 10px 40px 40px 10px;
+       }
+       .demo3{
+           width: 290px;
+             height: 100px;
+             border: 1px solid black;
+           padding: 3px;
+           box-sizing: border-box;
+           float:left;
+           position:relative; left:58px; top:8.5px;
+       }
+       .demo3label{
+       float:left;
+       }
+       .demo4{
+           width: 85%;
+             height: 270px;
+             border: 1px solid black;
+           padding: 30px;
+           line-height: 1.95;
+           float:left;
+           position:relative; left:35px; top:8.5px;
+       }.demo4 label{
+           margin: 10px 8px 20px 8px;
+       }
+       
+    </style>
+</head>
+<body>
+
+<div class="one">
+   <p>
+       Application ID &emsp; &emsp;&nbsp;&nbsp; {{data.id}}<br/>
+       Application Status &emsp;&nbsp; {{data.app_status}}<br/>
+       Score &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; {{data.score}}<br/>
+       Decline Reason &emsp;&ensp;&emsp; {{data.reason}}<br/>  
+   </p>            
+</div>
+
+<h3>Original Application</h3>
+<hr height="2px">
+<br/>
+<div >
+   <form class="two" >
+       <label> First Name &emsp; &emsp;&emsp;</label>
+             <input type="text" value="{{data.first_name}}" readonly>
+           <span class="boxt">Address</span>
+        <span class="demo1">
+            <label>Address Line 1 </label>
+             <input type="text" value="{{data.address_line1}}" readonly>
+           <br/>
+           <label>Address Line 2 </label>
+             <input type="text" value="{{data.address_line2}}" readonly>
+           <br/>
+           <label>City &emsp;&emsp;&emsp;&emsp;&thinsp; </label>
+             <input type="text" value="{{data.city}}" readonly>
+           <br/>
+           <label>State &emsp;&emsp;&emsp;&emsp;</label>
+             <input type="text" value="{{data.state}}" readonly>
+           <br/>
+           <label>Postal Code &emsp;&thinsp;</label>
+             <input type="text" value="{{data.postal_code}}" readonly>
+        </span> 
+        <br/> <br/><br/> 
+         <label>Middle Name &ensp; &ensp;&emsp; </label>  
+             <input type="text" value="{{data.middle_name}}" readonly>
+        <br/><br/>
+       <label>Last Name &emsp; &emsp;&emsp;</label>
+             <input type="text" value="{{data.last_name}}" readonly>  
+       <br/><br/>    
+         <label>Date of Birth &ensp; &ensp;&emsp; </label>  
+             <input type="date" value="{{data.dob}}" readonly >
+        <br/><br/> 
+        <label>Marital Status &emsp; &ensp; </label>
+             <input type="text" value="{{data.marital_status}}" readonly>
+        <span class="boxt">Contact Information</span>
+           <br/><br/>  
+        <span class="demo2">
+            <label>Home Phone &ensp; </label>
+             <input type="text" value="{{data.home_phone}}" readonly>
+           <br/>
+           <label>Office Phone &ensp;</label>
+             <input type="text" value="{{data.office_phone}}" readonly>
+           <br/>
+           <label>Mobile &emsp;&emsp; &ensp;</label>
+             <input type="text" value="{{data.mobile}}" readonly>
+           <br/>
+           <label>Email Address</label>
+             <input type="text" value="{{data.email_address}}" readonly>
+        </span> 
+        <br/> <br/> <br/> 
+        <label>SSN Number &ensp; &ensp;&emsp; </label>  
+             <input type="text" value="{{data.ssn}}" readonly>
+        <br/><br/>
+       <label>Loan Amount &emsp; &ensp; &thinsp;</label>
+             <input type="text" value="{{data.loan_ammount}}" readonly>  
+       <br/><br/>    
+         <label>Loan Purpose &emsp; &emsp;</label>  
+             <input type="text" value="{{data.purpose}}" readonly >
+        <br/><br/>
+       <span class="demo3label">
+       <label>Description</label></span>
+           <span class="demo3">
+             <input type="text" value="{{data.loan_ammount}} | json" readonly>
+           </span>
+       <br/><br/> 
+       <br/><br/><br/><br/><br/>
+       <span> &emsp; &ensp; Employment Details <br/></span>
+       <span class="demo4">
+           <label>Employer name &emsp; &ensp;</label>
+             <input type="text" value="{{data.employer_name}}" readonly >
+             <span>&emsp; &ensp; &thinsp; &emsp; &ensp; &thinsp; &emsp; &ensp; &thinsp;&emsp;  &thinsp;</span>
+           <label> Work Experience &ensp;
+                <span style="border: 0.5px solid black; background-color: rgb(255, 255, 255);"> {{data.e_y}} </span> 
+                <span>&ensp;</span>
+                <span style="border: 0.5px solid black; background-color: rgb(255, 255, 255);"> {{data.e_m}} </span>
+            </label> 
+           <br/>
+           <label>Annual Salary &emsp; &ensp; &thinsp;</label>
+             <input type="text" value="{{data.annual_salary}}" readonly >
+            <span style="border: 0px solid white; float: right; position:relative; right:23% ">
+           <label> Designation  &ensp;</label> 
+           <span> &ensp;</span>
+           <input type="text" value="{{data.designation}}" readonly >
+            </span> 
+           <br/>
+           <span> &ensp; Address </span><br/>
+            <label>&emsp; Address Line 1 &ensp; </label>
+             <input type="text" value="{{data.address_line1}}" readonly>
+           <br/>
+           <label>&emsp; Address Line 2 &ensp; </label>
+             <input type="text" value="{{data.address_line2}}" readonly>
+           <br/>
+           <label>&emsp; City  &ensp;&emsp;&emsp;&emsp;&emsp;&thinsp; </label>
+             <input type="text" value="{{data.city}}" readonly>
+           <br/>
+           <label>&emsp; State  &ensp;&emsp;&emsp;&emsp;&emsp;</label>
+             <input type="text" value="{{data.state}}" readonly>
+           <br/>
+           <label>&emsp; Postal Code  &ensp;&emsp;&thinsp;</label>
+             <input type="text" value="{{data.postal_code}}" readonly>
+           </span>
+        <br/><br/>
+       
+           
+   </form>
+</div>
+<h1 class="jumbotron" align="center" >
+<br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+        <a routerLink="/view"><button class="btn btn-success pull-right" >Back</button></a>
+</h1>
+</body>
+<router-outlet></router-outlet>
